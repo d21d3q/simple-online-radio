@@ -24,12 +24,12 @@ const IndexPage = ({data}) => {
         {data.allRadiosJson.nodes.map((radio) => (
           <li 
             key={radio.name}
-            className="flex flex-row my-1 h-16 border border-2 border-gray-200 rounded cursor-pointer"
+            className={`flex flex-row my-1 h-16 border border-2 border-gray-200 rounded cursor-pointer ${radio.stream === streamUrl ? "border-red-200" : ""}`}
             onClick={() => pickRadio(radio.stream)}
           >
-            <div className="w-16 mr-2">
+            <div className="w-16 h-full mr-2 flex items-center">
               <GatsbyImage
-                className="rounded m-1 border"
+                className="rounded m-1 border "
                 image={getImage(radio.image.src)}
                 alt={radio.name}
               />
