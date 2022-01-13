@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import ReactAudioPlayer from 'react-audio-player';
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -7,15 +7,18 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 const IndexPage = ({data}) => {
 
   const [streamUrl, setStreamUrl] = useState(null)
+  const playerRef = useRef(null)
   
   function pickRadio(url) {
     setStreamUrl(url)
+    playerRef.current.audioEl.current.load()
   }
 
   return (
     <main className="max-w-xs mx-auto">
       <ReactAudioPlayer
        className="mt-1 mb-4 mx-auto"
+       ref = {playerRef}
        src={streamUrl}
        autoPlay={true}
        controls
