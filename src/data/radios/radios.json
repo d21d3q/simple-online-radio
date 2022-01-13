@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Radio 357",
+        "stream": "https://stream.rcs.revma.com/an1ugyygzk8uv",
+        "image": {"src": "../../images/icons/radio357.png"}
+    },
+    {
+        "name": "Radio Nowy Świat",
+        "stream": "https://stream.nowyswiat.online/mp3",
+        "image": {"src": "../../images/icons/radionowyswiat.png"}
+    },
+    {
+        "name": "Radio TokFM",
+        "stream": "https://radiostream.pl/tuba10-1.mp3",
+        "image": {"src": "../../images/icons/tokfm.png"}
+    }
+]
