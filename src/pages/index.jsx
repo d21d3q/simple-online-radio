@@ -15,21 +15,21 @@ const IndexPage = ({data}) => {
   return (
     <main className="max-w-xs mx-auto">
       <ReactAudioPlayer
-       className="mb-4 mx-auto"
+       className="mt-1 mb-4 mx-auto"
        src={streamUrl}
        autoPlay={true}
        controls
       />
-      <ul>
+      <ul className="mx-1">
         {data.allRadiosJson.nodes.map((radio) => (
           <li 
             key={radio.name}
-            className="flex flex-row my-1 h-16 border border-2 border-gray-200 rounded"
+            className="flex flex-row my-1 h-16 border border-2 border-gray-200 rounded cursor-pointer"
             onClick={() => pickRadio(radio.stream)}
           >
-            <div className="mr-3 h-14 w-14 my-auto">
+            <div className="w-16 mr-2">
               <GatsbyImage
-                className="rounded"
+                className="rounded m-1 border"
                 image={getImage(radio.image.src)}
                 alt={radio.name}
               />
