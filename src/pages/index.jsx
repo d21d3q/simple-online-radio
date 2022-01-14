@@ -1,7 +1,8 @@
 import React, { useState, useRef } from "react"
-import ReactAudioPlayer from 'react-audio-player';
+import AudioPlayer from 'react-h5-audio-player';
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import 'react-h5-audio-player/lib/styles.css';
 
 
 const IndexPage = ({data}) => {
@@ -10,19 +11,28 @@ const IndexPage = ({data}) => {
   const playerRef = useRef(null)
   
   function pickRadio(url) {
+    playerRef.current.audio.current.pause()
+    playerRef.current.audio.current.currentTime = 0;
     setStreamUrl(url)
-    playerRef.current.audioEl.current.load()
+    playerRef.current.audio.current.load()
+    console.log("player", playerRef.current.audio.current)
   }
 
   return (
     <main className="max-w-xs mx-auto">
-      <ReactAudioPlayer
-       className="mt-1 mb-4 mx-auto"
-       ref = {playerRef}
-       src={streamUrl}
-       autoPlay={true}
-       controls
-      />
+      <div className="mx-1 mt-1 mb-4 ">
+        <AudioPlayer
+        ref = {playerRef}
+        src={streamUrl}
+        autoPlay={true}
+        preoad="none"
+        showJumpControls={false}
+        hasDefaultKeyBindings={false}
+        customAdditionalControls={[]}
+        customProgressBarSection={[]}
+        customControlsSection={["MAIN_CONTROLS", "VOLUME_CONTROLS"]}
+        />
+      </div>
       <ul className="mx-1">
         {data.allRadiosJson.nodes.map((radio) => (
           <li 
