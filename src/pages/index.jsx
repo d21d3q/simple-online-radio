@@ -15,7 +15,15 @@ const IndexPage = ({data}) => {
     playerRef.current.audio.current.currentTime = 0;
     setStreamUrl(url)
     playerRef.current.audio.current.load()
-    console.log("player", playerRef.current.audio.current)
+  }
+
+  function onPause() {
+    setStreamUrl(null)
+    playerRef.current.audio.current.load()
+  }
+
+  function onPlay() {
+    setStreamUrl(streamUrl)
   }
 
   return (
@@ -31,6 +39,8 @@ const IndexPage = ({data}) => {
         customAdditionalControls={[]}
         customProgressBarSection={[]}
         customControlsSection={["MAIN_CONTROLS", "VOLUME_CONTROLS"]}
+        onPlay={onPlay}
+        onPause={onPause}
         />
       </div>
       <ul className="mx-1">
