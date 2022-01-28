@@ -3,6 +3,7 @@ import AudioPlayer from 'react-h5-audio-player';
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import 'react-h5-audio-player/lib/styles.css';
+import ghIcon from "../images/gh.svg"
 
 
 const IndexPage = ({data}) => {
@@ -63,6 +64,11 @@ const IndexPage = ({data}) => {
           </li>
         ))}
       </ul>
+      <div className="mx-1 mt-4 flex justify-end">
+        <a href="https://github.com/d21d3q/simple-online-radio/" target="_blank" rel="noopener noreferrer">
+          <img className="opacity-40 h-5 w-5" src={ghIcon}/>
+        </a>
+      </div>
     </main>
   )
 }
