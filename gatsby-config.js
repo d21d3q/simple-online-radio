@@ -4,6 +4,7 @@ module.exports = {
         siteUrl: `https://www.yourdomain.tld`,
     },
     plugins: [
+      `gatsby-plugin-preact`,
       `gatsby-plugin-postcss`,
       `gatsby-plugin-image`,
       `gatsby-plugin-sharp`,
